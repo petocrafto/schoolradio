@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>History · School Radio Admin</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body class="admin-body">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="app-topbar" id="app-topbar"></header>
+      <div class="app-content">
+        <section class="card">
+          <div class="card-title"><div><span class="eyebrow" style="margin:0">Audit trail</span><h2 style="font-size:19px;margin:2px 0 0">Playback history</h2></div><span class="badge" id="history-count">—</span></div>
+          <div class="table-wrap" id="history-wrap" hidden>
+            <table class="table">
+              <thead><tr><th>Track</th><th>Requester</th><th>Played</th><th>Status</th></tr></thead>
+              <tbody id="history-body"></tbody>
+            </table>
+          </div>
+          <div id="history-empty"><div class="skeleton" style="height:80px"></div></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/vendor/supabase.js"></script>
+  <script type="module" src="/assets/js/admin-history.js"></script>
+</body>
+</html>

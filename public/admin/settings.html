@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings · School Radio Admin</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body class="admin-body">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="app-topbar" id="app-topbar"></header>
+      <div class="app-content">
+        <section class="card" style="max-width:640px">
+          <div class="card-title"><div><span class="eyebrow" style="margin:0">Station</span><h2 style="font-size:19px;margin:2px 0 0">Radio settings</h2></div></div>
+          <form id="settings-form">
+            <label class="field">
+              <span>Radio name</span>
+              <input id="radio-name" maxlength="80" required placeholder="School Radio">
+            </label>
+            <label class="field">
+              <span>Request moderation</span>
+              <select id="moderation">
+                <option value="manual">Manual approval</option>
+                <option value="automatic">Automatic approval</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Request limit per IP per hour</span>
+              <input id="limit" type="number" min="1" max="50" required>
+            </label>
+            <p class="help">The station timezone is fixed to Asia/Jakarta (WIB). Change it with a migration if the radio relocates.</p>
+            <div id="settings-message" class="muted" style="margin:10px 0 14px" hidden role="status"></div>
+            <button class="btn" id="save-btn" type="submit" disabled>Loading…</button>
+          </form>
+        </section>
+
+        <section class="card card-flat" style="max-width:640px">
+          <div class="eyebrow">Reference</div>
+          <h3>Database migrations</h3>
+          <p class="muted" style="margin-bottom:0">Apply the SQL files in <code>supabase/migrations</code> in order. The programme-name column is required by the schedule and player pages.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/vendor/supabase.js"></script>
+  <script type="module" src="/assets/js/admin-settings.js"></script>
+</body>
+</html>

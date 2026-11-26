@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Statistics · School Radio Admin</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body class="admin-body">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="app-topbar" id="app-topbar"></header>
+      <div class="app-content">
+        <section class="kpi-grid" id="kpis">
+          <div class="card"><div class="skeleton skeleton-line" style="width:60%"></div><div class="skeleton skeleton-line" style="width:40%;height:28px"></div></div>
+          <div class="card"><div class="skeleton skeleton-line" style="width:60%"></div><div class="skeleton skeleton-line" style="width:40%;height:28px"></div></div>
+          <div class="card"><div class="skeleton skeleton-line" style="width:60%"></div><div class="skeleton skeleton-line" style="width:40%;height:28px"></div></div>
+          <div class="card"><div class="skeleton skeleton-line" style="width:60%"></div><div class="skeleton skeleton-line" style="width:40%;height:28px"></div></div>
+        </section>
+
+        <section class="card">
+          <div class="card-title"><div><span class="eyebrow" style="margin:0">Last seven days</span><h2 style="font-size:19px;margin:2px 0 0">Songs played per day</h2></div><span class="badge" id="series-total">—</span></div>
+          <div id="chart" class="stack" style="gap:10px"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/vendor/supabase.js"></script>
+  <script type="module" src="/assets/js/admin-statistics.js"></script>
+</body>
+</html>

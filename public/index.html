@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>School Radio</title>
+  <meta name="description" content="School Radio — listen live, see what is coming up, and request a song.">
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg>
+        </span>
+        <span>School Radio<small>Live from campus</small></span>
+      </a>
+      <nav class="topnav" aria-label="Main">
+        <a href="/queue">Queue</a>
+        <a href="/request">Request</a>
+        <a href="/player" class="hide-sm">Player</a>
+        <a href="/admin" class="hide-sm">Admin</a>
+        <span class="live-pill" id="live-pill"><span class="live-dot"></span><span id="live-text">Checking</span></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="equalizer" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="eyebrow">On air · School community radio</div>
+          <h1>The soundtrack<br>to your <em>school day</em>.</h1>
+          <p class="lead">Listen in, see what is coming up, and request the songs you want to hear. Requests are reviewed according to the station settings.</p>
+          <div class="actions" style="margin-top:26px">
+            <a class="btn" href="/request">Request a song</a>
+            <a class="btn btn-secondary" href="/queue">View the queue</a>
+          </div>
+        </div>
+
+        <aside class="hero-art" aria-label="Now playing">
+          <div class="now">
+            <div class="row-between">
+              <span class="eyebrow" style="margin:0">Now playing</span>
+              <span class="badge accent" id="hero-state">Loading</span>
+            </div>
+            <div class="track" id="hero-title">Loading the airwaves…</div>
+            <p class="muted" id="hero-meta">Fetching the current track.</p>
+            <div class="progress" style="margin-top:14px"><span id="hero-progress"></span></div>
+            <div class="row-between tiny muted" style="margin-top:8px">
+              <span class="mono" id="hero-time"></span>
+              <span id="hero-program">No programme</span>
+            </div>
+            <div class="row-between tiny muted" style="margin-top:10px">
+              <span class="mono" id="hero-clock">--:--:--</span>
+              <span>WIB</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="grid grid-3" style="margin:18px 0 60px">
+      <a class="card card-hover" href="/queue" style="text-decoration:none">
+        <div class="eyebrow">Live queue</div>
+        <h3>See what is next</h3>
+        <p class="muted" style="margin:0">Approved requests, the current track, and the last songs played.</p>
+      </a>
+      <a class="card card-hover" href="/request" style="text-decoration:none">
+        <div class="eyebrow">Requests</div>
+        <h3>Pick the next track</h3>
+        <p class="muted" style="margin:0">Search YouTube, choose a song, and send it to the studio.</p>
+      </a>
+      <a class="card card-hover" href="/player" style="text-decoration:none">
+        <div class="eyebrow">Player</div>
+        <h3>Open the radio player</h3>
+        <p class="muted" style="margin:0">The dedicated player for the radio computer, with a live clock and programme guide.</p>
+      </a>
+    </section>
+
+    <section class="card" style="margin-bottom:60px">
+      <div class="card-title"><h2>Next on air</h2><a class="btn btn-ghost btn-sm" href="/queue">Full queue →</a></div>
+      <div class="list" id="hero-upnext"><div class="skeleton skeleton-card"></div><div class="skeleton skeleton-card"></div></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container row-between">
+      <span>School Radio · Powered by community requests</span>
+      <span class="row" style="gap:16px"><a href="/queue">Queue</a><a href="/request">Request</a><a href="/admin">Admin</a></span>
+    </div>
+  </footer>
+
+  <script type="module" src="/assets/js/home.js"></script>
+</body>
+</html>

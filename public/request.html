@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Request a song · School Radio</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg>
+        </span>
+        <span>School Radio<small>Live from campus</small></span>
+      </a>
+      <nav class="topnav" aria-label="Main">
+        <a href="/queue">Queue</a>
+        <a href="/request" class="active">Request</a>
+        <a href="/player" class="hide-sm">Player</a>
+        <a href="/admin" class="hide-sm">Admin</a>
+        <span class="live-pill" id="live-pill"><span class="live-dot"></span><span id="live-text">Checking</span></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page">
+    <div style="max-width:720px;margin-bottom:26px">
+      <div class="eyebrow">Song requests</div>
+      <h1 style="margin:0">Pick the next track.</h1>
+      <p class="muted" style="margin:10px 0 0">Search YouTube, choose one song, and send it to the studio. Requests may be moderated before they are played.</p>
+    </div>
+
+    <div class="grid grid-2" style="align-items:start" id="request-grid">
+      <section class="card">
+        <h2 style="font-size:19px">1. Your name</h2>
+        <label class="field">
+          <span>Name or nickname</span>
+          <input id="name" maxlength="60" placeholder="e.g. Aisyah" autocomplete="name">
+        </label>
+        <p class="help" style="margin-top:-6px">Shown to the studio and on the public queue.</p>
+
+        <h2 style="font-size:19px;margin-top:24px">2. Find a song</h2>
+        <form id="search-form" class="row" style="gap:10px">
+          <input id="query" type="search" maxlength="100" placeholder="Song, artist, or video" aria-label="Search YouTube" style="flex:1">
+          <button class="btn" id="search-btn" type="submit">Search</button>
+        </form>
+        <div id="status" class="muted" style="margin-top:14px" role="status" aria-live="polite"></div>
+      </section>
+
+      <section class="card" aria-live="polite">
+        <div class="card-title"><h2 style="font-size:19px">3. Choose a result</h2><span class="badge" id="result-count">—</span></div>
+        <div id="results" class="search-results">
+          <div class="empty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <span>Search for a song to see YouTube results here.</span>
+          </div>
+        </div>
+
+        <div id="selected-panel" class="card card-flat" style="margin:18px 0 0;background:var(--surface-2)" hidden>
+          <div class="eyebrow">Selected</div>
+          <strong id="selected-title" style="display:block;margin-bottom:4px"></strong>
+          <span class="muted tiny" id="selected-channel"></span>
+          <div class="actions" style="margin-top:16px">
+            <button class="btn" id="submit-btn" type="button">Submit request</button>
+            <button class="btn btn-ghost" id="clear-btn" type="button">Change selection</button>
+          </div>
+          <p class="help" id="submit-hint" style="margin:10px 0 0"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card" id="success-card" style="margin-top:22px" hidden>
+      <div class="row" style="align-items:flex-start">
+        <span class="stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m4 12 5 5L20 6"/></svg>
+        </span>
+        <div>
+          <h2 style="margin:0 0 4px;font-size:20px">Request received</h2>
+          <p class="muted" style="margin:0" id="success-message">Thanks! The studio will review it.</p>
+          <div class="actions" style="margin-top:14px"><a class="btn btn-secondary" href="/queue">See the queue</a><button class="btn btn-ghost" id="another-btn" type="button">Request another</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container row-between">
+      <span>School Radio · Powered by community requests</span>
+      <span class="row" style="gap:16px"><a href="/">Home</a><a href="/queue">Queue</a><a href="/admin">Admin</a></span>
+    </div>
+  </footer>
+
+  <script type="module" src="/assets/js/request.js"></script>
+</body>
+</html>

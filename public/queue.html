@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Queue · School Radio</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg>
+        </span>
+        <span>School Radio<small>Live from campus</small></span>
+      </a>
+      <nav class="topnav" aria-label="Main">
+        <a href="/queue" class="active">Queue</a>
+        <a href="/request">Request</a>
+        <a href="/player" class="hide-sm">Player</a>
+        <a href="/admin" class="hide-sm">Admin</a>
+        <span class="live-pill" id="live-pill"><span class="live-dot"></span><span id="live-text">Checking</span></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page">
+    <div class="row-between" style="align-items:flex-end;margin-bottom:22px">
+      <div>
+        <div class="eyebrow">Live queue</div>
+        <h1 style="margin:0">Up next on air.</h1>
+        <p class="muted" style="margin:8px 0 0">Updates automatically when the studio changes the queue.</p>
+      </div>
+      <span class="badge" id="updated">Connecting…</span>
+    </div>
+
+    <section class="card" id="now-card" style="margin-bottom:22px">
+      <div class="card-title"><span class="eyebrow" style="margin:0">Currently playing</span><span class="badge accent" id="now-badge">LIVE</span></div>
+      <div id="now-body"><div class="skeleton skeleton-line" style="width:60%;height:26px"></div><div class="skeleton skeleton-line short"></div></div>
+    </section>
+
+    <section style="margin-bottom:26px">
+      <div class="card-title"><h2>Approved requests</h2><span class="badge" id="queue-count">—</span></div>
+      <div class="list" id="upcoming"><div class="skeleton skeleton-card"></div><div class="skeleton skeleton-card"></div><div class="skeleton skeleton-card"></div></div>
+    </section>
+
+    <section>
+      <div class="card-title"><h2>Recently played</h2><span class="badge" id="history-count">—</span></div>
+      <div class="table-wrap" id="history-wrap" hidden>
+        <table class="table">
+          <thead><tr><th>Track</th><th>Channel</th><th>Played</th></tr></thead>
+          <tbody id="history"></tbody>
+        </table>
+      </div>
+      <div id="history-empty"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container row-between">
+      <span>School Radio · Powered by community requests</span>
+      <span class="row" style="gap:16px"><a href="/">Home</a><a href="/request">Request</a><a href="/admin">Admin</a></span>
+    </div>
+  </footer>
+
+  <script type="module" src="/assets/js/queue.js"></script>
+</body>
+</html>

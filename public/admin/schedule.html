@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schedule · School Radio Admin</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body class="admin-body">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="app-topbar" id="app-topbar"></header>
+      <div class="app-content">
+        <div id="schema-warning" class="form-error" hidden>
+          The <code>program_name</code> column is missing. Run <code>supabase/migrations/202611220003_schedule_program_names.sql</code> in Supabase, then reload this page.
+        </div>
+
+        <div class="grid grid-2" style="align-items:start">
+          <section class="card">
+            <div class="card-title">
+              <div><span class="eyebrow" style="margin:0">Weekly</span><h2 style="font-size:19px;margin:2px 0 0" id="weekly-title">Add weekly session</h2></div>
+              <button class="btn btn-ghost btn-sm" id="weekly-cancel" type="button" hidden>Cancel edit</button>
+            </div>
+            <form id="weekly-form" class="schedule-form">
+              <input type="hidden" id="weekly-id">
+              <label class="field wide"><span>Programme name</span><input id="weekly-name" maxlength="120" required placeholder="e.g. Morning Mix"></label>
+              <label class="field"><span>Day</span><select id="weekly-day"></select></label>
+              <label class="field"><span>Starts</span><input id="weekly-start" type="time" value="08:00" required></label>
+              <label class="field"><span>Ends</span><input id="weekly-end" type="time" value="15:00" required></label>
+              <label class="field"><span>Start behaviour</span><select id="weekly-behavior"></select></label>
+              <label class="field wide field-inline"><input id="weekly-enabled" type="checkbox" checked><span style="margin:0">Enabled</span></label>
+              <p class="help wide" style="margin:0 0 12px">An end time earlier than the start time continues past midnight. Overlapping sessions on the same day are rejected.</p>
+              <div class="actions wide">
+                <button class="btn" id="weekly-submit" type="submit">Add session</button>
+              </div>
+            </form>
+            <div id="weekly-message" class="form-error" style="margin-top:12px" hidden></div>
+          </section>
+
+          <section class="card">
+            <div class="card-title">
+              <div><span class="eyebrow" style="margin:0">Date override</span><h2 style="font-size:19px;margin:2px 0 0" id="override-title">Add date override</h2></div>
+              <button class="btn btn-ghost btn-sm" id="override-cancel" type="button" hidden>Cancel edit</button>
+            </div>
+            <form id="override-form" class="schedule-form">
+              <input type="hidden" id="override-id">
+              <label class="field"><span>Date</span><input id="override-date" type="date" required></label>
+              <label class="field"><span>Programme name</span><input id="override-name" maxlength="120" required placeholder="e.g. Sports Day"></label>
+              <label class="field"><span>Starts</span><input id="override-start" type="time" value="08:00"></label>
+              <label class="field"><span>Ends</span><input id="override-end" type="time" value="15:00"></label>
+              <label class="field"><span>Start behaviour</span><select id="override-behavior"></select></label>
+              <label class="field field-inline"><input id="override-closed" type="checkbox"><span style="margin:0">Closed day</span></label>
+              <label class="field wide field-inline"><input id="override-enabled" type="checkbox" checked><span style="margin:0">Enabled</span></label>
+              <p class="help wide" style="margin:0 0 12px">Overrides replace the weekly schedule for that date. A closed day blocks scheduled playback.</p>
+              <div class="actions wide">
+                <button class="btn" id="override-submit" type="submit">Add override</button>
+              </div>
+            </form>
+            <div id="override-message" class="form-error" style="margin-top:12px" hidden></div>
+          </section>
+        </div>
+
+        <section class="card">
+          <div class="card-title"><div><span class="eyebrow" style="margin:0">Repeat weekly</span><h2 style="font-size:19px;margin:2px 0 0">Weekly programme guide</h2></div><span class="badge" id="weekly-count">—</span></div>
+          <div id="weekly-list"><div class="skeleton" style="height:60px"></div><div class="skeleton" style="height:60px"></div></div>
+        </section>
+
+        <section class="card">
+          <div class="card-title"><div><span class="eyebrow" style="margin:0">Specific dates</span><h2 style="font-size:19px;margin:2px 0 0">Date overrides</h2></div><span class="badge" id="override-count">—</span></div>
+          <div id="override-list"><div class="skeleton" style="height:60px"></div></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/vendor/supabase.js"></script>
+  <script type="module" src="/assets/js/admin-schedule.js"></script>
+</body>
+</html>

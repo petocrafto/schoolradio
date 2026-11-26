@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in · School Radio Admin</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+  <main class="container" style="min-height:100vh;display:grid;place-items:center;padding:40px 0">
+    <div style="width:min(430px,100%)">
+      <a class="brand" href="/" style="margin-bottom:22px">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg>
+        </span>
+        <span>School Radio<small>Control room</small></span>
+      </a>
+      <div class="card">
+        <div class="eyebrow">Administrator access</div>
+        <h1 style="font-size:28px;margin-bottom:6px">Welcome back</h1>
+        <p class="muted" style="margin-bottom:22px">Sign in with the administrator account to manage the station.</p>
+        <form id="login-form" novalidate>
+          <label class="field">
+            <span>Email</span>
+            <input id="email" type="email" autocomplete="username" required placeholder="admin@school.example">
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <input id="password" type="password" autocomplete="current-password" required placeholder="••••••••">
+          </label>
+          <div id="login-message" class="form-error" hidden role="alert"></div>
+          <button class="btn btn-block" id="login-btn" type="submit" style="margin-top:6px">Sign in</button>
+        </form>
+        <p class="help" style="margin-top:16px">Only accounts listed in the radio administrators table can sign in here.</p>
+      </div>
+      <p class="center muted tiny" style="margin-top:16px"><a href="/">← Back to the station</a></p>
+    </div>
+  </main>
+  <script src="/assets/vendor/supabase.js"></script>
+  <script type="module" src="/assets/js/admin-login.js"></script>
+</body>
+</html>
